@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SmartTools - Free Online Tools</title>
+
+<meta name="description" content="Free online tools including Word Counter, Case Converter, Password Generator, QR Code Generator, Image Compressor and Image Resizer.">
+
+<meta name="robots" content="index, follow">
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f5f7fb;
+    color:#222;
+}
+
+header{
+    background:#111827;
+    color:white;
+    padding:18px;
+}
+
+.nav{
+    max-width:1100px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:bold;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:15px;
+}
+
+.hero{
+    background:white;
+    text-align:center;
+    padding:60px 20px;
+}
+
+.hero h1{
+    font-size:40px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    color:#666;
+}
+
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:30px 20px;
+}
+
+.tools{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
+}
+
+.card h3{
+    margin-bottom:10px;
+}
+
+button{
+    padding:11px 18px;
+    border:0;
+    border-radius:7px;
+    background:#2563eb;
+    color:white;
+    cursor:pointer;
+}
+
+.card button{
+    margin-top:15px;
+}
+
+.tool-box{
+    margin-top:30px;
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
+}
+
+textarea,
+input{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:1px solid #ddd;
+    border-radius:7px;
+}
+
+.action{
+    margin:5px;
+}
+
+.result{
+    margin-top:15px;
+    padding:15px;
+    background:#f3f4f6;
+    border-radius:7px;
+    white-space:pre-wrap;
+}
+
+section{
+    margin-bottom:40px;
+}
+
+footer{
+    background:#111827;
+    color:white;
+    text-align:center;
+    padding:30px;
+}
+
+.preview{
+    max-width:100%;
+    margin-top:15px;
+}
+
+@media(max-width:600px){
+    .hero h1{
+        font-size:30px;
+    }
+
+    .nav{
+        flex-direction:column;
+        gap:10px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="nav">
+<div class="logo">SmartTools</div>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#tools">Tools</a>
+<a href="#about">About</a>
+<a href="#faq">FAQ</a>
+</nav>
+</div>
+</header>
+
+<section class="hero" id="home">
+<h1>Free Online Tools</h1>
+<p>Simple, fast and free online tools for everyday work.</p>
+</section>
+
+<div class="container">
+
+<section id="tools">
+
+<h2>Our Free Tools</h2>
+<br>
+
+<div class="tools">
+
+<div class="card">
+<h3>📝 Word Counter</h3>
+<p>Count words and characters.</p>
+<button onclick="showTool('word')">Open Tool</button>
+</div>
+
+<div class="card">
+<h3>🔤 Case Converter</h3>
+<p>Convert text case easily.</p>
+<button onclick="showTool('case')">Open Tool</button>
+</div>
+
+<div class="card">
+<h3>🔐 Password Generator</h3>
+<p>Create strong passwords.</p>
+<button onclick="showTool('password')">Open Tool</button>
+</div>
+
+<div class="card">
+<h3>📱 QR Code Generator</h3>
+<p>Create QR codes from text or links.</p>
+<button onclick="showTool('qr')">Open Tool</button>
+</div>
+
+<div class="card">
+<h3>🖼️ Image Compressor</h3>
+<p>Compress images in your browser.</p>
+<button onclick="showTool('compress')">Open Tool</button>
+</div>
+
+<div class="card">
+<h3>📐 Image Resizer</h3>
+<p>Resize your images.</p>
+<button onclick="showTool('resize')">Open Tool</button>
+</div>
+
+<div class="card">
+<h3>JPG → PNG</h3>
+<p>Convert JPG to PNG.</p>
+<button onclick="showTool('jpgpng')">Open Tool</button>
+</div>
+
+<div class="card">
+<h3>PNG → JPG</h3>
+<p>Convert PNG to JPG.</p>
+<button onclick="showTool('pngjpg')">Open Tool</button>
+</div>
+
+</div>
+</section>
+
+<div id="toolArea"></div>
+
+<section id="about">
+<h2>About SmartTools</h2>
+<br>
+<p>
+SmartTools provides free online tools for everyday tasks.
+No registration is required.
+</p>
+</section>
+
+<section id="faq">
+<h2>Frequently Asked Questions</h2>
+<br>
+
+<h3>Are these tools free?</h3>
+<p>Yes, all tools are free.</p>
+
+<br>
+
+<h3>Do I need an account?</h3>
+<p>No registration is required.</p>
+
+<br>
+
+<h3>Do they work on mobile?</h3>
+<p>Yes, SmartTools works on mobile and desktop.</p>
+</section>
+
+</div>
+
+<footer>
+<p>© 2026 SmartTools. All Rights Reserved.</p>
+</footer>
+
+<script>
+
+function showTool(type){
+
+let area=document.getElementById("toolArea");
+
+if(type==="word"){
+
+area.innerHTML=`
+<div class="tool-box">
+<h2>Word Counter</h2>
+
+<textarea id="wordText"
+rows="10"
+placeholder="Type or paste your text..."
+oninput="countWords()"></textarea>
+
+<div class="result" id="wordResult">
+Words: 0
+Characters: 0
+</div>
+</div>
+`;
+
+}
+
+else if(type==="case"){
+
+area.innerHTML=`
+<div class="tool-box">
+<h2>Case Converter</h2>
+
+<textarea id="caseText"
+rows="10"
+placeholder="Enter your text..."></textarea>
+
+<button class="action" onclick="upperCase()">UPPERCASE</button>
+
+<button class="action" onclick="lowerCase()">lowercase</button>
+
+<button class="action" onclick="titleCase()">Title Case</button>
+
+<div class="result" id="caseResult"></div>
+</div>
+`;
+
+}
+
+else if(type==="password"){
+
+area.innerHTML=`
+<div class="tool-box">
+<h2>Password Generator</h2>
+
+<input type="number"
+id="passLength"
+value="16"
+min="4"
+max="100">
+
+<button class="action"
+onclick="generatePassword()">
+Generate Password
+</button>
+
+<div class="result"
+id="passwordResult"></div>
+</div>
+`;
+
+}
+
+else if(type==="qr"){
+
+area.innerHTML=`
+<div class="tool-box">
+<h2>QR Code Generator</h2>
+
+<input id="qrText"
+placeholder="Enter text or website URL">
+
+<button class="action"
+onclick="generateQR()">
+Generate QR Code
+</button>
+
+<div id="qrResult"></div>
+</div>
+`;
+
+}
+
+else if(type==="compress"){
+
+area.innerHTML=`
+<div class="tool-box">
+<h2>Image Compressor</h2>
+
+<input type="file"
+id="compressFile"
+accept="image/*">
+
+<button class="action"
+onclick="compressImage()">
+Compress Image
+</button>
+
+<div id="compressResult"></div>
+</div>
+`;
+
+}
+
+else if(type==="resize"){
+
+area.innerHTML=`
+<div class="tool-box">
+<h2>Image Resizer</h2>
+
+<input type="file"
+id="resizeFile"
+accept="image/*">
+
+<input type="number"
+id="resizeWidth"
+placeholder="New width">
+
+<input type="number"
+id="resizeHeight"
+placeholder="New height">
+
+<button class="action"
+onclick="resizeImage()">
+Resize Image
+</button>
+
+<div id="resizeResult"></div>
+</div>
+`;
+
+}
+
+else if(type==="jpgpng"){
+
+area.innerHTML=`
+<div class="tool-box">
+<h2>JPG to PNG Converter</h2>
+
+<input type="file"
+id="jpgFile"
+accept="image/jpeg">
+
+<button class="action"
+onclick="convertJpgToPng()">
+Convert to PNG
+</button>
+
+<div id="jpgResult"></div>
+</div>
+`;
+
+}
+
+else if(type==="pngjpg"){
+
+area.innerHTML=`
+<div class="tool-box">
+<h2>PNG to JPG Converter</h2>
+
+<input type="file"
+id="pngFile"
+accept="image/png">
+
+<button class="action"
+onclick="convertPngToJpg()">
+Convert to JPG
+</button>
+
+<div id="pngResult"></div>
+</div>
+`;
+
+}
+
+area.scrollIntoView({behavior:"smooth"});
+
+}
+
+
+function countWords(){
+
+let text=document.getElementById("wordText").value;
+
+let words=text.trim()
+? text.trim().split(/\s+/).length
+:0;
+
+document.getElementById("wordResult").innerText=
+"Words: "+words+
+"\nCharacters: "+text.length;
+
+}
+
+
+function upperCase(){
+
+document.getElementById("caseResult").innerText=
+document.getElementById("caseText").value.toUpperCase();
+
+}
+
+
+function lowerCase(){
+
+document.getElementById("caseResult").innerText=
+document.getElementById("caseText").value.toLowerCase();
+
+}
+
+
+function titleCase(){
+
+let text=document.getElementById("caseText").value;
+
+document.getElementById("caseResult").innerText=
+text.toLowerCase()
+.replace(/\b\w/g,c=>c.toUpperCase());
+
+}
+
+
+function generatePassword(){
+
+let length=parseInt(
+document.getElementById("passLength").value
+);
+
+let chars=
+"ABCDEFGHIJKLMNOPQRSTUVWXYZ"+
+"abcdefghijklmnopqrstuvwxyz"+
+"0123456789!@#$%^&*()_+";
+
+let password="";
+
+for(let i=0;i<length;i++){
+
+password+=chars.charAt(
+Math.floor(Math.random()*chars.length)
+);
+
+}
+
+document.getElementById("passwordResult").innerText=
+password;
+
+}
+
+
+function generateQR(){
+
+let text=document.getElementById("qrText").value;
+
+if(!text){
+
+alert("Please enter text or URL");
+return;
+
+}
+
+let url=
+"https://api.qrserver.com/v1/create-qr-code/?size=250x250&data="
++encodeURIComponent(text);
+
+document.getElementById("qrResult").innerHTML=`
+
+<img class="preview"
+src="${url}"
+alt="Generated QR Code">
+
+<br>
+
+<a href="${url}" target="_blank">
+<button class="action">
+Open QR Code
+</button>
+</a>
+`;
+
+}
+
+
+function compressImage(){
+
+let file=
+document.getElementById("compressFile").files[0];
+
+if(!file){
+
+alert("Please select an image");
+return;
+
+}
+
+let reader=new FileReader();
+
+reader.onload=function(e){
+
+let img=new Image();
+
+img.onload=function(){
+
+let canvas=document.createElement("canvas");
+
+let ctx=canvas.getContext("2d");
+
+let maxWidth=1200;
+
+let ratio=Math.min(1,maxWidth/img.width);
+
+canvas.width=img.width*ratio;
+canvas.height=img.height*ratio;
+
+ctx.drawImage(
+img,0,0,
+canvas.width,
+canvas.height
+);
+
+canvas.toBlob(function(blob){
+
+let url=URL.createObjectURL(blob);
+
+document.getElementById("compressResult").innerHTML=`
+
+<p>Original:
+${(file.size/1024).toFixed(1)} KB</p>
+
+<p>Compressed:
+${(blob.size/1024).toFixed(1)} KB</p>
+
+<a href="${url}"
+download="compressed-image.jpg">
+
+<button class="action">
+Download Compressed Image
+</button>
+
+</a>
+`;
+
+},"image/jpeg",0.6);
+
+};
+
+img.src=e.target.result;
+
+};
+
+reader.readAsDataURL(file);
+
+}
+
+
+function resizeImage(){
+
+let file=
+document.getElementById("resizeFile").files[0];
+
+let width=
+parseInt(document.getElementById("resizeWidth").value);
+
+let height=
+parseInt(document.getElementById("resizeHeight").value);
+
+if(!file || !width || !height){
+
+alert("Please select image and enter width and height");
+return;
+
+}
+
+let reader=new FileReader();
+
+reader.onload=function(e){
+
+let img=new Image();
+
+img.onload=function(){
+
+let canvas=document.createElement("canvas");
+
+canvas.width=width;
+canvas.height=height;
+
+let ctx=canvas.getContext("2d");
+
+ctx.drawImage(
+img,0,0,width,height
+);
+
+canvas.toBlob(function(blob){
+
+let url=URL.createObjectURL(blob);
+
+document.getElementById("resizeResult").innerHTML=`
+
+<a href="${url}"
+download="resized-image.jpg">
+
+<button class="action">
+Download Resized Image
+</button>
+
+</a>
+`;
+
+},"image/jpeg",0.9);
+
+};
+
+img.src=e.target.result;
+
+};
+
+reader.readAsDataURL(file);
+
+}
+
+
+function convertJpgToPng(){
+
+let file=
+document.getElementById("jpgFile").files[0];
+
+if(!file){
+
+alert("Please select JPG image");
+return;
+
+}
+
+let reader=new FileReader();
+
+reader.onload=function(e){
+
+let img=new Image();
+
+img.onload=function(){
+
+let canvas=document.createElement("canvas");
+
+canvas.width=img.width;
+canvas.height=img.height;
+
+let ctx=canvas.getContext("2d");
+
+ctx.drawImage(img,0,0);
+
+canvas.toBlob(function(blob){
+
+let url=URL.createObjectURL(blob);
+
+document.getElementById("jpgResult").innerHTML=`
+
+<a href="${url}"
+download="converted-image.png">
+
+<button class="action">
+Download PNG
+</button>
+
+</a>
+`;
+
+},"image/png");
+
+};
+
+img.src=e.target.result;
+
+};
+
+reader.readAsDataURL(file);
+
+}
+
+
+function convertPngToJpg(){
+
+let file=
+document.getElementById("pngFile").files[0];
+
+if(!file){
+
+alert("Please select PNG image");
+return;
+
+}
+
+let reader=new FileReader();
+
+reader.onload=function(e){
+
+let img=new Image();
+
+img.onload=function(){
+
+let canvas=document.createElement("canvas");
+
+canvas.width=img.width;
+canvas.height=img.height;
+
+let ctx=canvas.getContext("2d");
+
+ctx.fillStyle="#ffffff";
+
+ctx.fillRect(
+0,0,
+canvas.width,
+canvas.height
+);
+
+ctx.drawImage(img,0,0);
+
+canvas.toBlob(function(blob){
+
+let url=URL.createObjectURL(blob);
+
+document.getElementById("pngResult").innerHTML=`
+
+<a href="${url}"
+download="converted-image.jpg">
+
+<button class="action">
+Download JPG
+</button>
+
+</a>
+`;
+
+},"image/jpeg",0.9);
+
+};
+
+img.src=e.target.result;
+
+};
+
+reader.readAsDataURL(file);
+
+}
+
+</script>
+
+</body>
+  </html>
