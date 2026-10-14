@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Free Word Counter Online - Count Words & Characters | SmartTools</title>
+
+<meta name="description" content="Free online word counter to instantly count words and characters in your text. Fast, simple and easy to use on mobile and desktop.">
+
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://dreamdive322-lab.github.io/smarttools-free/word-counter.html">
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+body{
+  font-family:Arial,sans-serif;
+  background:#f5f7fb;
+  color:#222;
+}
+header{
+  background:#111827;
+  color:white;
+  padding:18px;
+}
+.nav{
+  max-width:900px;
+  margin:auto;
+}
+.nav a{
+  color:white;
+  text-decoration:none;
+  font-size:24px;
+  font-weight:bold;
+}
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:35px 20px;
+}
+h1{
+  margin-bottom:12px;
+}
+.intro{
+  color:#555;
+  line-height:1.6;
+  margin-bottom:25px;
+}
+.tool-box{
+  background:white;
+  padding:25px;
+  border-radius:12px;
+  box-shadow:0 3px 12px rgba(0,0,0,.08);
+}
+textarea{
+  width:100%;
+  min-height:220px;
+  padding:15px;
+  border:1px solid #ddd;
+  border-radius:8px;
+  font-size:16px;
+  margin-top:15px;
+}
+.result{
+  margin-top:15px;
+  padding:15px;
+  background:#f3f4f6;
+  border-radius:7px;
+  font-weight:bold;
+  line-height:1.7;
+}
+.info{
+  margin-top:35px;
+  line-height:1.7;
+}
+.info h2{
+  margin:25px 0 10px;
+}
+.info h3{
+  margin:20px 0 8px;
+}
+footer{
+  margin-top:40px;
+  background:#111827;
+  color:white;
+  text-align:center;
+  padding:25px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+    <a href="index.html">SmartTools</a>
+  </div>
+</header>
+
+<main class="container">
+
+<h1>Free Online Word Counter</h1>
+
+<p class="intro">
+Use our free Word Counter to instantly count the number of words and
+characters in your text. Simply type or paste your text below and the
+results will update automatically.
+</p>
+
+<div class="tool-box">
+  <h2>Word & Character Counter</h2>
+
+  <textarea
+    id="wordText"
+    placeholder="Type or paste your text here..."
+    oninput="countWords()"></textarea>
+
+  <div class="result" id="wordResult">
+    Words: 0<br>
+    Characters: 0
+  </div>
+</div>
+
+<section class="info">
+
+<h2>How to Use the Word Counter</h2>
+<p>
+Type or paste your text into the box above. The tool automatically
+calculates the total number of words and characters as you type.
+No registration is required.
+</p>
+
+<h2>Why Use a Word Counter?</h2>
+<p>
+A word counter can help when writing articles, assignments, essays,
+social media posts and other content where you need to check the
+length of your text.
+</p>
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>Is this Word Counter free?</h3>
+<p>Yes. The SmartTools Word Counter is free to use.</p>
+
+<h3>Do I need to create an account?</h3>
+<p>No. You can use the tool without registration.</p>
+
+<h3>Does it work on mobile?</h3>
+<p>Yes. The Word Counter works on mobile phones and desktop browsers.</p>
+
+</section>
+
+</main>
+
+<footer>
+<p>© 2026 SmartTools. All Rights Reserved.</p>
+</footer>
+
+<script>
+function countWords(){
+  let text=document.getElementById("wordText").value;
+
+  let words=text.trim()
+    ? text.trim().split(/\s+/).length
+    : 0;
+
+  document.getElementById("wordResult").innerHTML=
+    "Words: "+words+
+    "<br>Characters: "+text.length;
+}
+</script>
+
+</body>
+</html>
