@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dreamdive322-lab.github.io/smarttools-free/sitemap.xml
