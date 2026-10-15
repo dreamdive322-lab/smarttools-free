@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Free Image Compressor Online - Compress Images | SmartTools</title>
+
+<meta name="description" content="Compress images online for free with SmartTools. Reduce image file size quickly in your browser and download the compressed image.">
+
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://dreamdive322-lab.github.io/smarttools-free/image-compressor.html">
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,sans-serif;
+  background:#f5f7fb;
+  color:#222;
+}
+
+header{
+  background:#111827;
+  color:white;
+  padding:18px;
+}
+
+.nav{
+  max-width:900px;
+  margin:auto;
+}
+
+.nav a{
+  color:white;
+  text-decoration:none;
+  font-size:24px;
+  font-weight:bold;
+}
+
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:35px 20px;
+}
+
+h1{
+  margin-bottom:12px;
+}
+
+.intro{
+  color:#555;
+  line-height:1.6;
+  margin-bottom:25px;
+}
+
+.tool-box{
+  background:white;
+  padding:25px;
+  border-radius:12px;
+  box-shadow:0 3px 12px rgba(0,0,0,.08);
+}
+
+input{
+  width:100%;
+  padding:13px;
+  margin:15px 0;
+  border:1px solid #ddd;
+  border-radius:7px;
+}
+
+button{
+  padding:12px 18px;
+  border:0;
+  border-radius:7px;
+  background:#2563eb;
+  color:white;
+  cursor:pointer;
+}
+
+#compressResult{
+  margin-top:20px;
+  line-height:1.7;
+}
+
+.info{
+  margin-top:35px;
+  line-height:1.7;
+}
+
+.info h2{
+  margin:25px 0 10px;
+}
+
+.info h3{
+  margin:20px 0 8px;
+}
+
+footer{
+  margin-top:40px;
+  background:#111827;
+  color:white;
+  text-align:center;
+  padding:25px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="nav">
+<a href="index.html">SmartTools</a>
+</div>
+</header>
+
+<main class="container">
+
+<h1>Free Online Image Compressor</h1>
+
+<p class="intro">
+Use our free Image Compressor to reduce image file size quickly.
+Select an image, compress it in your browser and download the
+compressed version.
+</p>
+
+<div class="tool-box">
+
+<h2>Compress an Image</h2>
+
+<input type="file"
+id="compressFile"
+accept="image/*">
+
+<button onclick="compressImage()">
+Compress Image
+</button>
+
+<div id="compressResult"></div>
+
+</div>
+
+<section class="info">
+
+<h2>How to Compress an Image</h2>
+<p>
+Select an image from your device and press Compress Image.
+The tool will process the image and show the original and compressed
+file sizes. You can then download the compressed image.
+</p>
+
+<h2>Why Compress Images?</h2>
+<p>
+Smaller image files can use less storage and may be faster to upload
+or share. Image compression can also help reduce the size of images
+used on websites.
+</p>
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>Is this Image Compressor free?</h3>
+<p>Yes. The SmartTools Image Compressor is free to use.</p>
+
+<h3>Do I need to create an account?</h3>
+<p>No. Registration is not required.</p>
+
+<h3>Does the Image Compressor work on mobile?</h3>
+<p>Yes. You can use it in supported mobile and desktop browsers.</p>
+
+</section>
+
+</main>
+
+<footer>
+<p>© 2026 SmartTools. All Rights Reserved.</p>
+</footer>
+
+<script>
+function compressImage(){
+
+  let file=
+  document.getElementById("compressFile").files[0];
+
+  if(!file){
+    alert("Please select an image");
+    return;
+  }
+
+  let reader=new FileReader();
+
+  reader.onload=function(e){
+
+    let img=new Image();
+
+    img.onload=function(){
+
+      let canvas=document.createElement("canvas");
+      let ctx=canvas.getContext("2d");
+
+      let maxWidth=1200;
+      let ratio=Math.min(1,maxWidth/img.width);
+
+      canvas.width=img.width*ratio;
+      canvas.height=img.height*ratio;
+
+      ctx.drawImage(
+        img,0,0,
+        canvas.width,
+        canvas.height
+      );
+
+      canvas.toBlob(function(blob){
+
+        let url=URL.createObjectURL(blob);
+
+        document.getElementById("compressResult").innerHTML=`
+          <p><strong>Original:</strong>
+          ${(file.size/1024).toFixed(1)} KB</p>
+
+          <p><strong>Compressed:</strong>
+          ${(blob.size/1024).toFixed(1)} KB</p>
+
+          <br>
+
+          <a href="${url}" download="compressed-image.jpg">
+            <button>Download Compressed Image</button>
+          </a>
+        `;
+
+      },"image/jpeg",0.6);
+
+    };
+
+    img.src=e.target.result;
+  };
+
+  reader.readAsDataURL(file);
+}
+</script>
+
+</body>
+</html>
