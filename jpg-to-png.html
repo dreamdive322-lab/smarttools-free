@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>JPG to PNG Converter Online Free | SmartTools</title>
+
+<meta name="description" content="Convert JPG images to PNG online for free. Upload your JPG image and quickly download it as a PNG file with SmartTools.">
+
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://dreamdive322-lab.github.io/smarttools-free/jpg-to-png.html">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  font-family:Arial,sans-serif;
+  background:#f5f7fb;
+  color:#222;
+}
+
+header{
+  background:#111827;
+  padding:18px;
+}
+
+.nav{
+  max-width:900px;
+  margin:auto;
+}
+
+.nav a{
+  color:white;
+  text-decoration:none;
+  font-size:24px;
+  font-weight:bold;
+}
+
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:35px 20px;
+}
+
+h1{margin-bottom:12px}
+
+.intro{
+  color:#555;
+  line-height:1.6;
+  margin-bottom:25px;
+}
+
+.tool-box{
+  background:white;
+  padding:25px;
+  border-radius:12px;
+  box-shadow:0 3px 12px rgba(0,0,0,.08);
+}
+
+input{
+  width:100%;
+  padding:13px;
+  margin:15px 0;
+  border:1px solid #ddd;
+  border-radius:7px;
+}
+
+button{
+  padding:12px 18px;
+  border:0;
+  border-radius:7px;
+  background:#2563eb;
+  color:white;
+  cursor:pointer;
+}
+
+#jpgResult{
+  margin-top:20px;
+}
+
+.info{
+  margin-top:35px;
+  line-height:1.7;
+}
+
+.info h2{
+  margin:25px 0 10px;
+}
+
+.info h3{
+  margin:20px 0 8px;
+}
+
+footer{
+  margin-top:40px;
+  background:#111827;
+  color:white;
+  text-align:center;
+  padding:25px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="nav">
+<a href="index.html">SmartTools</a>
+</div>
+</header>
+
+<main class="container">
+
+<h1>Free JPG to PNG Converter</h1>
+
+<p class="intro">
+Convert JPG images to PNG online for free. Select a JPG image from
+your device, convert it and download the PNG file.
+</p>
+
+<div class="tool-box">
+
+<h2>Convert JPG to PNG</h2>
+
+<input type="file"
+id="jpgFile"
+accept="image/jpeg">
+
+<button onclick="convertJpgToPng()">
+Convert to PNG
+</button>
+
+<div id="jpgResult"></div>
+
+</div>
+
+<section class="info">
+
+<h2>How to Convert JPG to PNG</h2>
+<p>
+Select a JPG image from your device and press Convert to PNG.
+After conversion, use the download button to save the PNG image.
+</p>
+
+<h2>Why Convert JPG to PNG?</h2>
+<p>
+PNG is a widely supported image format. Converting an image can be
+useful when a website, application or project requires a PNG file.
+</p>
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>Is this JPG to PNG Converter free?</h3>
+<p>Yes. This converter is free to use.</p>
+
+<h3>Do I need an account?</h3>
+<p>No. Registration is not required.</p>
+
+<h3>Can I use it on mobile?</h3>
+<p>Yes. It works in supported mobile and desktop browsers.</p>
+
+</section>
+
+</main>
+
+<footer>
+<p>© 2026 SmartTools. All Rights Reserved.</p>
+</footer>
+
+<script>
+function convertJpgToPng(){
+
+  let file=document.getElementById("jpgFile").files[0];
+
+  if(!file){
+    alert("Please select JPG image");
+    return;
+  }
+
+  let reader=new FileReader();
+
+  reader.onload=function(e){
+
+    let img=new Image();
+
+    img.onload=function(){
+
+      let canvas=document.createElement("canvas");
+
+      canvas.width=img.width;
+      canvas.height=img.height;
+
+      let ctx=canvas.getContext("2d");
+      ctx.drawImage(img,0,0);
+
+      canvas.toBlob(function(blob){
+
+        let url=URL.createObjectURL(blob);
+
+        document.getElementById("jpgResult").innerHTML=`
+          <a href="${url}" download="converted-image.png">
+            <button>Download PNG</button>
+          </a>
+        `;
+
+      },"image/png");
+
+    };
+
+    img.src=e.target.result;
+  };
+
+  reader.readAsDataURL(file);
+}
+</script>
+
+</body>
+</html>
