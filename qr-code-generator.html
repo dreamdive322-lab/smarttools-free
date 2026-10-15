@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Free QR Code Generator Online | SmartTools</title>
+
+<meta name="description" content="Create QR codes online for free from text or website URLs. Fast and simple QR Code Generator by SmartTools.">
+
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://dreamdive322-lab.github.io/smarttools-free/qr-code-generator.html">
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+body{
+  font-family:Arial,sans-serif;
+  background:#f5f7fb;
+  color:#222;
+}
+header{
+  background:#111827;
+  color:white;
+  padding:18px;
+}
+.nav{
+  max-width:900px;
+  margin:auto;
+}
+.nav a{
+  color:white;
+  text-decoration:none;
+  font-size:24px;
+  font-weight:bold;
+}
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:35px 20px;
+}
+h1{
+  margin-bottom:12px;
+}
+.intro{
+  color:#555;
+  line-height:1.6;
+  margin-bottom:25px;
+}
+.tool-box{
+  background:white;
+  padding:25px;
+  border-radius:12px;
+  box-shadow:0 3px 12px rgba(0,0,0,.08);
+}
+input{
+  width:100%;
+  padding:13px;
+  margin:15px 0;
+  border:1px solid #ddd;
+  border-radius:7px;
+  font-size:16px;
+}
+button{
+  padding:12px 18px;
+  border:0;
+  border-radius:7px;
+  background:#2563eb;
+  color:white;
+  cursor:pointer;
+}
+#qrResult{
+  margin-top:20px;
+  text-align:center;
+}
+.preview{
+  max-width:250px;
+  width:100%;
+}
+.info{
+  margin-top:35px;
+  line-height:1.7;
+}
+.info h2{
+  margin:25px 0 10px;
+}
+.info h3{
+  margin:20px 0 8px;
+}
+footer{
+  margin-top:40px;
+  background:#111827;
+  color:white;
+  text-align:center;
+  padding:25px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="nav">
+<a href="index.html">SmartTools</a>
+</div>
+</header>
+
+<main class="container">
+
+<h1>Free Online QR Code Generator</h1>
+
+<p class="intro">
+Create a QR code from text or a website URL with our free online
+QR Code Generator. Enter your content below and generate your QR code
+in seconds.
+</p>
+
+<div class="tool-box">
+
+<h2>Create a QR Code</h2>
+
+<input id="qrText"
+placeholder="Enter text or website URL">
+
+<button onclick="generateQR()">Generate QR Code</button>
+
+<div id="qrResult"></div>
+
+</div>
+
+<section class="info">
+
+<h2>How to Use the QR Code Generator</h2>
+<p>
+Enter your text or website URL in the box above and press
+Generate QR Code. Your QR code will appear on the screen.
+</p>
+
+<h2>What Can You Use a QR Code For?</h2>
+<p>
+QR codes can make it easier to share website links, text and other
+information that people can access by scanning the code.
+</p>
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>Is this QR Code Generator free?</h3>
+<p>Yes. You can use this tool for free.</p>
+
+<h3>Can I create a QR code for a website?</h3>
+<p>Yes. Enter the website URL and press Generate QR Code.</p>
+
+<h3>Does it work on mobile?</h3>
+<p>Yes. The QR Code Generator works on mobile and desktop browsers.</p>
+
+</section>
+
+</main>
+
+<footer>
+<p>© 2026 SmartTools. All Rights Reserved.</p>
+</footer>
+
+<script>
+function generateQR(){
+
+  let text=document.getElementById("qrText").value;
+
+  if(!text){
+    alert("Please enter text or URL");
+    return;
+  }
+
+  let url=
+  "https://api.qrserver.com/v1/create-qr-code/?size=250x250&data="
+  +encodeURIComponent(text);
+
+  document.getElementById("qrResult").innerHTML=`
+    <img class="preview"
+    src="${url}"
+    alt="Generated QR Code">
+
+    <br><br>
+
+    <a href="${url}" target="_blank">
+      <button>Open QR Code</button>
+    </a>
+  `;
+}
+</script>
+
+</body>
+</html>
