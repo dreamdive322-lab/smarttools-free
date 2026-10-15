@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Free Case Converter Online - Uppercase & Lowercase | SmartTools</title>
+
+<meta name="description" content="Free online case converter to change text to uppercase, lowercase or title case instantly. Simple, fast and easy to use.">
+
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://dreamdive322-lab.github.io/smarttools-free/case-converter.html">
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+body{
+  font-family:Arial,sans-serif;
+  background:#f5f7fb;
+  color:#222;
+}
+header{
+  background:#111827;
+  color:white;
+  padding:18px;
+}
+.nav{
+  max-width:900px;
+  margin:auto;
+}
+.nav a{
+  color:white;
+  text-decoration:none;
+  font-size:24px;
+  font-weight:bold;
+}
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:35px 20px;
+}
+h1{
+  margin-bottom:12px;
+}
+.intro{
+  color:#555;
+  line-height:1.6;
+  margin-bottom:25px;
+}
+.tool-box{
+  background:white;
+  padding:25px;
+  border-radius:12px;
+  box-shadow:0 3px 12px rgba(0,0,0,.08);
+}
+textarea{
+  width:100%;
+  min-height:220px;
+  padding:15px;
+  border:1px solid #ddd;
+  border-radius:8px;
+  font-size:16px;
+  margin:15px 0;
+}
+button{
+  padding:11px 16px;
+  margin:5px;
+  border:0;
+  border-radius:7px;
+  background:#2563eb;
+  color:white;
+  cursor:pointer;
+}
+.result{
+  margin-top:15px;
+  padding:15px;
+  min-height:55px;
+  background:#f3f4f6;
+  border-radius:7px;
+  white-space:pre-wrap;
+}
+.info{
+  margin-top:35px;
+  line-height:1.7;
+}
+.info h2{
+  margin:25px 0 10px;
+}
+.info h3{
+  margin:20px 0 8px;
+}
+footer{
+  margin-top:40px;
+  background:#111827;
+  color:white;
+  text-align:center;
+  padding:25px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="nav">
+<a href="index.html">SmartTools</a>
+</div>
+</header>
+
+<main class="container">
+
+<h1>Free Online Case Converter</h1>
+
+<p class="intro">
+Use this free Case Converter to quickly change your text to uppercase,
+lowercase or title case. Type or paste your text below and choose the
+format you need.
+</p>
+
+<div class="tool-box">
+
+<h2>Convert Text Case</h2>
+
+<textarea id="caseText"
+placeholder="Type or paste your text here..."></textarea>
+
+<button onclick="upperCase()">UPPERCASE</button>
+<button onclick="lowerCase()">lowercase</button>
+<button onclick="titleCase()">Title Case</button>
+
+<div class="result" id="caseResult"></div>
+
+</div>
+
+<section class="info">
+
+<h2>How to Use the Case Converter</h2>
+<p>
+Enter or paste your text into the box above. Select uppercase,
+lowercase or title case and your converted text will appear instantly.
+</p>
+
+<h2>Why Use a Case Converter?</h2>
+<p>
+A case converter makes it easy to change the capitalization of text
+without typing it again. It can be useful for articles, titles,
+documents, messages and social media content.
+</p>
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>Is the Case Converter free?</h3>
+<p>Yes. This tool is free to use.</p>
+
+<h3>Do I need an account?</h3>
+<p>No registration or account is required.</p>
+
+<h3>Does it work on mobile?</h3>
+<p>Yes. You can use the Case Converter on mobile and desktop browsers.</p>
+
+</section>
+
+</main>
+
+<footer>
+<p>© 2026 SmartTools. All Rights Reserved.</p>
+</footer>
+
+<script>
+function upperCase(){
+  document.getElementById("caseResult").innerText =
+  document.getElementById("caseText").value.toUpperCase();
+}
+
+function lowerCase(){
+  document.getElementById("caseResult").innerText =
+  document.getElementById("caseText").value.toLowerCase();
+}
+
+function titleCase(){
+  let text=document.getElementById("caseText").value;
+
+  document.getElementById("caseResult").innerText =
+  text.toLowerCase().replace(/\b\w/g,c=>c.toUpperCase());
+}
+</script>
+
+</body>
+  </html>
