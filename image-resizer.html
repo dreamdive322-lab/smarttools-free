@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Free Image Resizer Online - Resize Images | SmartTools</title>
+
+<meta name="description" content="Resize images online for free. Enter your desired width and height, resize your image quickly and download it with SmartTools.">
+
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://dreamdive322-lab.github.io/smarttools-free/image-resizer.html">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:Arial,sans-serif;
+  background:#f5f7fb;
+  color:#222;
+}
+header{
+  background:#111827;
+  padding:18px;
+}
+.nav{
+  max-width:900px;
+  margin:auto;
+}
+.nav a{
+  color:white;
+  text-decoration:none;
+  font-size:24px;
+  font-weight:bold;
+}
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:35px 20px;
+}
+h1{margin-bottom:12px}
+.intro{
+  color:#555;
+  line-height:1.6;
+  margin-bottom:25px;
+}
+.tool-box{
+  background:white;
+  padding:25px;
+  border-radius:12px;
+  box-shadow:0 3px 12px rgba(0,0,0,.08);
+}
+input{
+  width:100%;
+  padding:13px;
+  margin:10px 0;
+  border:1px solid #ddd;
+  border-radius:7px;
+  font-size:16px;
+}
+button{
+  padding:12px 18px;
+  margin-top:10px;
+  border:0;
+  border-radius:7px;
+  background:#2563eb;
+  color:white;
+  cursor:pointer;
+}
+#resizeResult{
+  margin-top:20px;
+}
+.info{
+  margin-top:35px;
+  line-height:1.7;
+}
+.info h2{
+  margin:25px 0 10px;
+}
+.info h3{
+  margin:20px 0 8px;
+}
+footer{
+  margin-top:40px;
+  background:#111827;
+  color:white;
+  text-align:center;
+  padding:25px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="nav">
+<a href="index.html">SmartTools</a>
+</div>
+</header>
+
+<main class="container">
+
+<h1>Free Online Image Resizer</h1>
+
+<p class="intro">
+Resize an image online by entering your desired width and height.
+Select an image, choose the new dimensions and download the resized
+image directly to your device.
+</p>
+
+<div class="tool-box">
+
+<h2>Resize Your Image</h2>
+
+<input type="file" id="resizeFile" accept="image/*">
+
+<input type="number" id="resizeWidth" placeholder="New width in pixels">
+
+<input type="number" id="resizeHeight" placeholder="New height in pixels">
+
+<button onclick="resizeImage()">Resize Image</button>
+
+<div id="resizeResult"></div>
+
+</div>
+
+<section class="info">
+
+<h2>How to Resize an Image</h2>
+<p>
+Choose an image from your device. Enter the new width and height in
+pixels, then press Resize Image. After processing, you can download
+the resized image.
+</p>
+
+<h2>Why Resize Images?</h2>
+<p>
+Image resizing can be useful when you need specific image dimensions
+for websites, documents, social media or other digital content.
+</p>
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>Is this Image Resizer free?</h3>
+<p>Yes. The SmartTools Image Resizer is free to use.</p>
+
+<h3>Do I need an account?</h3>
+<p>No. Registration is not required.</p>
+
+<h3>Can I use it on mobile?</h3>
+<p>Yes. It works in supported mobile and desktop browsers.</p>
+
+</section>
+
+</main>
+
+<footer>
+<p>© 2026 SmartTools. All Rights Reserved.</p>
+</footer>
+
+<script>
+function resizeImage(){
+
+  let file=document.getElementById("resizeFile").files[0];
+  let width=parseInt(document.getElementById("resizeWidth").value);
+  let height=parseInt(document.getElementById("resizeHeight").value);
+
+  if(!file || !width || !height){
+    alert("Please select image and enter width and height");
+    return;
+  }
+
+  let reader=new FileReader();
+
+  reader.onload=function(e){
+
+    let img=new Image();
+
+    img.onload=function(){
+
+      let canvas=document.createElement("canvas");
+
+      canvas.width=width;
+      canvas.height=height;
+
+      let ctx=canvas.getContext("2d");
+
+      ctx.drawImage(img,0,0,width,height);
+
+      canvas.toBlob(function(blob){
+
+        let url=URL.createObjectURL(blob);
+
+        document.getElementById("resizeResult").innerHTML=`
+          <a href="${url}" download="resized-image.jpg">
+            <button>Download Resized Image</button>
+          </a>
+        `;
+
+      },"image/jpeg",0.9);
+
+    };
+
+    img.src=e.target.result;
+  };
+
+  reader.readAsDataURL(file);
+}
+</script>
+
+</body>
+</html>
